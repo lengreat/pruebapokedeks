@@ -9,7 +9,7 @@ class  HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final pokemonProvider=Provider.of<PokeProvider>(context);//llamo al provider de pokemones
+    final ciudadesProvider=Provider.of<PokeProvider>(context);//llamo al provider de ciudades
 
     //print (pokemonProvider.onDisplay);
 
@@ -24,7 +24,7 @@ class  HomeScreen extends StatelessWidget {
       ),
       body: Column(
         children:  [
-           CardSwiper(pokemons: pokemonProvider.onDisplay),
+           CardSwiper(ciudades: ciudadesProvider.onDisplay, pokemons: ciudadesProvider.onDisplay2,),
            //Text('ddsdsd')
         ],
       )

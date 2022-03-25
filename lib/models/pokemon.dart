@@ -1,25 +1,28 @@
+
 import 'dart:convert';
 
-class Pokemon {
-    Pokemon({
-        required this.name,
-        required this.url,
+import 'package:prueba_pokemon/models/response_pokemon.dart';
+
+class PokemonEntry {
+    PokemonEntry({
+        required this.entryNumber,
+        required this.pokemonSpecies,
     });
 
-    String name;
-    String url;
+    int entryNumber;
+    Language pokemonSpecies;
 
-    factory Pokemon.fromJson(String str) => Pokemon.fromMap(json.decode(str));
+    factory PokemonEntry.fromJson(String str) => PokemonEntry.fromMap(json.decode(str));
 
     String toJson() => json.encode(toMap());
 
-    factory Pokemon.fromMap(Map<String, dynamic> json) => Pokemon(
-        name: json["name"],
-        url: json["url"],
+    factory PokemonEntry.fromMap(Map<String, dynamic> json) => PokemonEntry(
+        entryNumber: json["entry_number"],
+        pokemonSpecies: Language.fromMap(json["pokemon_species"]),
     );
 
     Map<String, dynamic> toMap() => {
-        "name": name,
-        "url": url,
+        "entry_number": entryNumber,
+        "pokemon_species": pokemonSpecies.toMap(),
     };
 }

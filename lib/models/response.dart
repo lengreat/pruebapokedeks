@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:prueba_pokemon/models/pokemon.dart';
+import 'package:prueba_pokemon/models/liga_ciudad.dart';
 
 class PokedexResponse {
     PokedexResponse({
@@ -17,7 +17,7 @@ class PokedexResponse {
     int count;
     String next;
     dynamic previous;
-    List<Pokemon> results;
+    List<LigaCiudad> results;//Listado de las ciudades
 
     factory PokedexResponse.fromJson(String str) => PokedexResponse.fromMap(json.decode(str));
 
@@ -27,7 +27,7 @@ class PokedexResponse {
         count: json["count"],
         next: json["next"],
         previous: json["previous"],
-        results: List<Pokemon>.from(json["results"].map((x) => Pokemon.fromMap(x))),
+        results: List<LigaCiudad>.from(json["results"].map((x) => LigaCiudad.fromMap(x))),
     );
 
     Map<String, dynamic> toMap() => {
